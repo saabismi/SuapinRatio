@@ -1,0 +1,19 @@
+{
+  "name": "baas-90",
+  "version": "0.1.0",
+  "description": "Random electron app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saabismi/baas-90.git"
+  },
+  "author": "saabismi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saabismi/baas-90/issues"
+  },
+  "homepage": "https://github.com/saabismi/baas-90#readme"
+}
