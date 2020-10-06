@@ -8,3 +8,5 @@ It will have at least the following features:
 ---
 
 ### To run this program you need to install electron using `npm install electron`
+
+Of course you need to also have node and npm installed.
