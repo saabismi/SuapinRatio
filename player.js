@@ -21,7 +21,7 @@ function loadVideo(url, title) {
 }
 
 function search(string) {
-	var main = document.getElementById("main-container");
+	var main = document.getElementById("results");
   while (main.firstChild) {
     main.removeChild(main.lastChild);
   }

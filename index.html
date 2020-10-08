@@ -10,18 +10,29 @@
 
 <body>
 
-<h1>Welcome to SuapinRatio music player desktop program</h1>
+<aside id="menu">
+
+<section id="haku">
+    <form>
+        <input name="search" type="text" id="search">
+        <button onClick="search(document.getElementById('search').value);">Hae</button>
+    </form>
+</section>
+
+</aside>
 
 
-<div class="lcdbg">
-<p id="playing" class="lcd anim"></p>
-</div>
+<main>
 
-<input name="search" type="text" id="search"><button onClick="search(document.getElementById('search').value);">Hae</button>
+    <h1>Welcome to SuapinRatio music player desktop program</h1>
 
-<div id="main-container">
 
-</div>
+    <div class="lcdbg">
+        <p id="playing" class="lcd anim"></p>
+    </div>
+
+<h2>Search results:</h2>
+<div id="results"></div>
 
 <hr>
 
@@ -35,6 +46,8 @@ and Electron <script>document.write(process.versions.electron)</script>.
 
 <button class="saab"><span class="btntxt">RADIO</span></button>
 <button id="nightpanel" class="saab"><span class="btntxt">NIGHT PANEL</span></button>
+
+</main>
 
 
 </body>
