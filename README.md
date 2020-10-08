@@ -6,4 +6,3 @@ Saab themed music player using [electron js](https://www.electronjs.org/)
 
 ## To run this you need to do the following:
 * `npm install electron`
-* `npm install custom-electron-titlebar`
