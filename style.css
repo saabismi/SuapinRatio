@@ -1,33 +1,34 @@
+/*Import the custom font that looks like the font in SAAB SID*/
 @font-face {
 font-family: "beefd";
 src: url("resources/beefd.ttf");
 }
 
+/*Apply for all elements*/
 * {
 box-sizing: border-box;
 }
 
+/*Basic styling for body*/
 body {
 margin:0;
 font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Custom Titlebar */
+
+/* not in use yet 
 .titlebar {
   -webkit-user-select: none;
   -webkit-app-region: drag;
 }
+*/
 
-/* Saab SID style text */
-.lcd {
-font-family: "beefd";
-background-color: #003e07;
-color:#27ed2d;
-padding:10px;
-width:auto;
-}
 
-/* Saab style button */
+
+/* SAAB STYLE BUTTONS */
+
+/*Button styling*/
 button.saab {
 width:242px;
 height:100px;
@@ -42,30 +43,50 @@ background-color:transparent;
 background-repeat: no-repeat;
 }
 
+/*Change the background image when the button is pressed*/
 button.saab:active {
 background-image: url(resources/down.png);
 }
 
+/*Move the text slightly when the button is pressed*/
 button.saab:active span.btntxt {
 margin-right:5px;
 color:#b5f898;
 }
 
-.lcdbg {
-background-color: #003e07;
-white-space: nowrap;
-}
-
+/*Button wide enough for the text "night panel"*/
 #nightpanel {
 width:330px;
 height:100px;
 background-size: 330px 100px;
 }
 
-#testi {
-animation: marquee 20s steps(160,end) infinite;
+
+
+/* SAAB SID LCD style for text */
+
+/* Basic styling */
+.lcd {
+font-family: "beefd";
+background-color: #003e07;
+color:#27ed2d;
+padding:10px;
+width:auto;
 }
 
+/* Background for animated LCD elements */
+.lcdbg {
+background-color: #003e07;
+white-space: nowrap;
+overflow:hidden;
+}
+
+/*Class for applying the marquee animation easily*/
+.anim {
+animation: marquee 10s steps(100,end) infinite;
+}
+
+/*Keyframes for the marquee animation*/
 @keyframes marquee {
   0% {
     transform: translateX(100%);
