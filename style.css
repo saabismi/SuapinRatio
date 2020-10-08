@@ -85,15 +85,45 @@ overflow:hidden;
 
 /*Class for applying the marquee animation easily*/
 .anim {
-animation: marquee 10s steps(100,end) infinite;
+animation: marquee 15s steps(100,end) infinite;
 }
 
 /*Keyframes for the marquee animation*/
+
+/*Toimii ihan ok, mutta vois olla hienompiki*/
 @keyframes marquee {
   0% {
     transform: translateX(100%);
+  }
+  40% {
+    transform: translateX(0%);
+  }
+  60% {
+    transform: translateX(0%);
   }
   100% {
     transform: translateX(-100%);
   }
 }
+
+
+/* Testailu joka aika paskana (älä silti poista)*/
+/*
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  20% {
+    transform: translateX(0%);
+  }
+  40% {
+    transform: translateX(0%);
+  }
+  70% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+*/
