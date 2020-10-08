@@ -5,3 +5,9 @@ box-sizing: border-box;
 body {
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+button.saab {
+width:242px;
+height:99px;
+background-image: url(resources/nappi.gif);
+}
