@@ -1,21 +1,21 @@
 {
-  "name": "baas-90",
-  "version": "0.1.0",
-  "description": "Random electron app",
+  "name": "SuapinRatio",
+  "version": "0.1.1",
+  "description": "Saab themed music player",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/saabismi/baas-90.git"
+    "url": "git+https://github.com/saabismi/SuapinRatio.git"
   },
   "author": "saabismi",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/saabismi/baas-90/issues"
+    "url": "https://github.com/saabismi/SuapinRatio/issues"
   },
-  "homepage": "https://github.com/saabismi/baas-90#readme",
+  "homepage": "https://github.com/saabismi/SuapinRatio#readme",
   "devDependencies": {
     "electron": "^10.1.3"
   },
