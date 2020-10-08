@@ -17,7 +17,7 @@ font-family: Arial, Helvetica, sans-serif;
 
 /* Custom Titlebar */
 
-/* not in use yet 
+/* not in use yet
 .titlebar {
   -webkit-user-select: none;
   -webkit-app-region: drag;
@@ -61,6 +61,9 @@ height:100px;
 background-size: 330px 100px;
 }
 
+#thumbnail {
+	width: 128px;
+}
 
 
 /* SAAB SID LCD style for text */
