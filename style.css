@@ -1,15 +1,28 @@
+@font-face {
+font-family: "beefd";
+src: url("resources/beefd.ttf");
+}
+
 * {
 box-sizing: border-box;
 }
 
 body {
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Custom Titlebar */
 .titlebar {
   -webkit-user-select: none;
   -webkit-app-region: drag;
+}
+
+.lcd {
+font-family: "beefd";
+background-color: #003e07;
+color:#27ed2d;
+padding:10px;
+width:auto;
 }
 
 /* Saab style button */
