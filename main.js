@@ -5,7 +5,7 @@ function createWindow() {
 
     const win = new BrowserWindow({
         width: 1000,
-        height: 600,
+        height: 820,
         icon: __dirname + "/resources/icons/icon_hires.png",
         webPreferences: {
             nodeIntegration: true
