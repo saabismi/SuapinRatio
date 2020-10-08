@@ -56,7 +56,7 @@ white-space: nowrap;
 }
 
 #testi {
-animation: marquee 10s linear infinite;
+animation: marquee 20s steps(160,end) infinite;
 }
 
 @keyframes marquee {
