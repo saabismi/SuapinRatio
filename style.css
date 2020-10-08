@@ -8,6 +8,7 @@ box-sizing: border-box;
 }
 
 body {
+margin:0;
 font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -17,6 +18,7 @@ font-family: Arial, Helvetica, sans-serif;
   -webkit-app-region: drag;
 }
 
+/* Saab SID style text */
 .lcd {
 font-family: "beefd";
 background-color: #003e07;
@@ -46,4 +48,22 @@ background-image: url(resources/down.png);
 button.saab:active span.btntxt {
 margin-right:5px;
 color:#b5f898;
+}
+
+.lcdbg {
+background-color: #003e07;
+white-space: nowrap;
+}
+
+#testi {
+animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
