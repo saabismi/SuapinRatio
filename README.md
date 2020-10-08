@@ -6,7 +6,7 @@ Saab themed music player using [electron js](https://www.electronjs.org/)
 
 # Current state of the project:
 
-![alt text](resources/screenshots/nykytila-20-10-08.jpg "Current state of the program")
+![alt text](resources/screenshots/nykytila-20-10-08.png "Current state of the program")
 
 
 ## To run this you need to do the following:
