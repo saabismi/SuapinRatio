@@ -30,15 +30,16 @@ width:auto;
 /* Saab style button */
 button.saab {
 width:242px;
-height:99px;
-background-image: url(resources/up.png);
+height:100px;
 border:none;
 font-size:30pt;
 color:#c1f9aa;
 font-family: Arial, Helvetica, sans-serif;
 cursor: pointer;
-background-color:transparent;
 outline:0;
+background-image: url(resources/up.png);
+background-color:transparent;
+background-repeat: no-repeat;
 }
 
 button.saab:active {
@@ -55,8 +56,14 @@ background-color: #003e07;
 white-space: nowrap;
 }
 
+#nightpanel {
+width:330px;
+height:100px;
+background-size: 330px 100px;
+}
+
 #testi {
-animation: marquee 10s linear infinite;
+animation: marquee 15s linear infinite;
 }
 
 @keyframes marquee {
