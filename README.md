@@ -9,6 +9,8 @@ Saab themed music player using [electron js](https://www.electronjs.org/)
 ![alt text](https://raw.githubusercontent.com/saabismi/SuapinRatio/master/resources/screenshots/nykytila-20-10-08.png "Current state of the program")
 
 
-## To run this you need to do the following:
+## To run this you need to install the following packages:
 * `npm install electron`
-* `npm start`
+* `npm install youtube-dl`
+* `npm install ytdl-core`
+* `npm install ytsr`
