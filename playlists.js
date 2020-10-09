@@ -15,6 +15,7 @@ function newList() {
     var owner = "admin";
     var duration = "13:58";
 
+    name
     name = new playlist(name, owner, duration);
 }
 
@@ -106,3 +107,16 @@ playlists[<index>].push({
 
     ]
 })
+
+//get by name
+async function getByName(name){
+    let value = null
+    for(let i = 0; i < playlists.length; i++){
+        if(playlists[i].name == name){
+            value = playlists[i]
+            break
+        }
+    }
+    return value
+}
+console.log(getByName("testi"))
