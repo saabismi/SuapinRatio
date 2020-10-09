@@ -92,7 +92,7 @@ playlists.push({
 })
 
 //Add to playlist
-playlists[<index>].push({
+playlists[2].push({
     name: "testi",
     icon: "https://google.com",
     songs: [
