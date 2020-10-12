@@ -17,7 +17,9 @@
 <section class="search">
     <input name="search" type="text" id="search">
     <button onClick="search(document.getElementById('search').value);">Hae</button>
+	<div id="playlists">
 
+	</div>
 </section>
 
 </aside>
@@ -41,12 +43,12 @@ and Electron <script>document.write(process.versions.electron)</script>.
 <button class="saab"><span class="btntxt">RADIO</span></button>
 <button id="nightpanel" class="saab"><span class="btntxt">NIGHT PANEL</span></button>
 
-<button onclick="newList()">Uusi soittolista</button>
+<button onclick="saveList('listatesti')">Uusi soittolista</button>
 
 </main>
 
 <div id="player">
-
+		<div id="currentList"></div>
     <div class="lcdbg">
         <p id="playing" class="lcd anim"></p>
     </div>
