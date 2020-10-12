@@ -47,8 +47,8 @@ height:100%;
 }
 
 
-.search #results button {
-width:100%;
+#searchResult {
+width:30%;
 height:auto;
 }
 
@@ -56,7 +56,7 @@ height:auto;
 #results {
 width:95%;
 display:flex;
-flex-direction: column;
+flex-direction: row;
 }
 
 

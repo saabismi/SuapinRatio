@@ -37,14 +37,14 @@ function loadVideo(url, title) {
 
 function search(string) {
 	let main = document.getElementById("results");
-	main.innerHTML = "<img src='loading.gif' id='loading'>";
+	main.innerHTML = "<img src='resources/loading.gif' id='loading'>";
 	ytsr(string, {limit: 3}).then(result => {
 		result.items.forEach((item, i) => {
 			let button = document.createElement("BUTTON");
 			button.setAttribute("onClick",`loadVideo( '${item.link}' , '${item.title}' ) `);
 			button.setAttribute("class", "searchResult");
 			main.appendChild(button);
-			button.innerHTML=`<img class="thumbnail" src='${item.thumbnail}'>`;
+			button.innerHTML=`<img class="thumbnail" src='${item.thumbnail}'>${item.title}`;
 		});
 	document.getElementById("loading").style.display = "none";
 	});
