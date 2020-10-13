@@ -27,9 +27,25 @@ function removeTrack(list, track) {
 	playTrack(list)
 }
 
+function prevSong() {
+	playTrack('playing',lists.playing.now-1);
+}
+
+function nextSong() {
+	playTrack('playing',lists.playing.now+1);
+}
+
 function playTrack(list, track) {
 	if (!(track === undefined) || !lists[list].playing) {
 		if (!(track === undefined)) {lists[list].now=track;}
+
+		if (lists[list].now < 0 || lists[list].now >= lists[list].items.lenght) {
+			lists[list].now = 0;
+			lists[list].playing = false;
+			document.getElementById('playing').innerText = " "
+			window.playing = "Currently not playing anything";
+			return;
+		}
 		document.getElementById('playing').innerText = lists[list].items[lists[list].now].title
 		window.playing = lists[list].items[lists[list].now].title;
 
@@ -38,13 +54,6 @@ function playTrack(list, track) {
 		audio.play();
 		lists[list].playing = true;
 		audio.onended = () => {
-			if (lists[list].now+1 >= lists[list].items.lenght) {
-				lists[list].now = 0;
-				lists[list].playing = false;
-				document.getElementById('playing').innerText = " "
-				window.playing = "Currently not playing anything";
-				return;
-			}
 			playTrack('playing', lists[list].now+1);
 		}
 	}
