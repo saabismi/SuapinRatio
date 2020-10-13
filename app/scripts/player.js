@@ -135,7 +135,7 @@ function printList(list,target,action) {
 				button.setAttribute("onClick",`loadVideo('search', ${i}, 'playing' ); `);
 				button.setAttribute("class", "searchResult");
 				div.appendChild(button);
-				button.innerHTML = (`<img class="thumbnail" src='${item.thumbnail}'>${item.title}`);
+				button.innerHTML = (`<img class="thumbnail" src='${item.thumbnail}'><br>${item.title}`);
 				break;
 			case 'display':
 				button.setAttribute("onClick",`playTrack('playing',${i})`);

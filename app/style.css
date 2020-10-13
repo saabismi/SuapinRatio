@@ -80,6 +80,7 @@ height:40px;
 width:40px;
 margin:0;
 padding:0;
+cursor: pointer;
 }
 
 
@@ -97,22 +98,32 @@ margin:0;
 padding:0;
 }
 
+#links a {
+cursor: pointer;
+}
+
+#links ul li:hover {
+margin-left:2px;
+color:#e49603;
+}
+
 /* Thumbnails in search results */
 
 .thumbnail {
-width:100%;
-height:100%;
+width:90%;
+height:auto;
 }
 
 
 #searchResult {
 width:30%;
-height:auto;
+max-height:50px;
 }
 
 
 #results {
-width:95%;
+width:100%;
+height:220px;
 display:flex;
 flex-direction: row;
 }
@@ -201,8 +212,17 @@ font-size: 24pt;
 color:#27ed2d;
 padding-top:0;
 margin-top:0;
-margin-bottom:5px;
+margin-bottom:0;
 }
+
+/*Placeholder button which will be replaced by songs as soon as you add them to the queue*/
+#placeholderbtn {
+background-color: transparent;
+color:transparent;
+border:2px solid transparent;
+}
+
+
 
 /* BUTTONS */
 

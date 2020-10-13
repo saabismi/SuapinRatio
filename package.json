@@ -1,6 +1,6 @@
 {
-  "name": "SuapinRatio",
-  "version": "0.1.2",
+  "name": "suapinratio",
+  "version": "0.1.3",
   "description": "Saab themed music player",
   "main": "main.js",
   "scripts": {
