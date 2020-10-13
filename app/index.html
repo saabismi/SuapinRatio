@@ -10,7 +10,7 @@
 
 <body>
 
-<div class="grid-container">
+<div class="flex-container">
 
 <aside id="menu">
 
@@ -22,6 +22,16 @@
 	</div>
 </section>
 
+<section id="links">
+    <ul>
+        <li>Kappaleet</li>
+        <li>Artistit</li>
+        <li>Soittolistat</li>
+        <li>Lataukset</li>
+        <li>Asetukset</li>
+    </ul>
+</section>
+
 </aside>
 
 
@@ -30,11 +40,7 @@
     <h1 id="logo">SuapinRatio</h1>
 		<h2>Search results:</h2>
     <div id="results"></div>
-<hr>
 
-We are using node <script>document.write(process.versions.node)</script>,
-Chrome <script>document.write(process.versions.chrome)</script>,
-and Electron <script>document.write(process.versions.electron)</script>.
 
 <hr>
 
@@ -47,13 +53,22 @@ and Electron <script>document.write(process.versions.electron)</script>.
 
 </main>
 
-<div id="player">
-		<div id="currentList"></div>
-    <div class="lcdbg">
-        <p id="playing" class="lcd anim"></p>
-    </div>
-
 </div>
+
+<div id="flex-player">
+
+    <div id="player">
+            <div id="currentList"></div>
+        <div class="lcdbg">
+            <p id="playing" class="lcd anim"></p>
+        </div>
+
+        <div id="buttons">
+            <button id="mute" onclick="playAndPause()"></button>
+            <button id="previous" onclick="prevSong()"></button>
+            <button id="next" onclick="nextSong()"></button>
+        </div>
+    </div>
 
 </div>
 

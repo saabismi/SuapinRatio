@@ -1,7 +1,7 @@
 /*Import the custom font that looks like the font in SAAB SID*/
 @font-face {
 font-family: "beefd";
-src: url("resources/beefd.ttf");
+src: url("beefd.ttf");
 }
 
 /*Apply for all elements*/
@@ -9,34 +9,82 @@ src: url("resources/beefd.ttf");
 box-sizing: border-box;
 }
 
+
 /*Basic styling for body*/
 body {
 margin:0;
 font-family: Arial, Helvetica, sans-serif;
-background-color: #2d2d2d;
+background-color: #171717;
 color:#f5f5f5;
 }
 
-/* GRID CONTAINER */
-.grid-container {
-display:grid;
-grid-template-areas:
-"aside main main main"
-"aside main main main"
-"aside main main main"
-"player player player player";
-grid-gap: 10px;
-background-color: #2d2d2d;
-}
 
+/* FLEX CONTAINER */
+
+.flex-container {
+display:flex;
+}
 
 
 /* ASIDE = sidebar */
 
 aside {
-grid-area:aside;
-background-color:#5c5c5c;
-width:280px;
+background-color:#313131;
+width:25%;
+max-width: 250px;
+margin:10px;
+margin-right:0px;
+}
+
+/*Search*/
+
+section.search {
+height:2rem;
+width:100%;
+padding:0;
+margin:0;
+}
+
+.search input[type="text"] {
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: bold;
+border:none;
+background-color:transparent;
+color:#494949;
+outline:0;
+font-size:16pt;
+background-color: #f7f7f7;
+padding:5px;
+height:100%;
+width:78%;
+margin:0;
+}
+
+.search button {
+font-family:Arial, Helvetica, sans-serif;
+background-color:#27ed2d;
+color:#000000;
+border:none;
+outline:none;
+height:100%;
+width:20%;
+margin:0;
+padding:0;
+}
+
+
+/*Links area*/
+#links ul li {
+list-style-type: none;
+color:#fcbb43;
+font-family: "beefd";
+padding: 5px;
+font-size: 10pt;
+}
+
+#links ul {
+margin:0;
+padding:0;
 }
 
 /* Thumbnails in search results */
@@ -69,18 +117,11 @@ flex-direction: column;
 /* MAIN */
 
 main {
-grid-area:main;
-background-color: #5c5c5c;
+width:98%;
+margin:10px;
+background-color: #313131;
 }
 
-
-
-/* PLAYER */
-
-#player {
-grid-area: player;
-background-color: #5c5c5c;
-}
 
 /*Logo h1*/
 
@@ -124,6 +165,19 @@ color:#b5f898;
 width:330px;
 height:100px;
 background-size: 330px 100px;
+}
+
+/* PLAYER */
+
+#flex-player {
+display:flex;
+flex-direction: column-reverse;
+}
+
+#player {
+background-color: #494949;
+width:100%;
+height:100%;
 }
 
 
