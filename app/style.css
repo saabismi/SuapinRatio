@@ -210,8 +210,16 @@ background-image: url(resources/mute.png);
 background-image: url(resources/previous.png);
 }
 
+#previous:active {
+background-image: url(resources/previous2.png);
+}
+
 #next {
 background-image: url(resources/next.png);
+}
+
+#next:active {
+background-image: url(resources/next2.png);
 }
 
 
