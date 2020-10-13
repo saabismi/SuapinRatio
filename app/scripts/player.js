@@ -137,3 +137,16 @@ function printList(list,target,action) {
 			}
 	});
 }
+
+//hillon juttui
+
+function playAndPause() {
+
+	if (audio.paused) {
+		audio.play();
+		console.log("Playback continued");
+	} else {
+		audio.pause()
+		console.log("Playback paused");
+	}
+}
