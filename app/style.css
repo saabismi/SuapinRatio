@@ -112,12 +112,13 @@ color:#e49603;
 .thumbnail {
 width:90%;
 height:auto;
+max-height:200px;
 }
 
 
 #searchResult {
 width:30%;
-max-height:50px;
+height:auto;
 }
 
 
