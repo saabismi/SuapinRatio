@@ -28,11 +28,11 @@ function removeTrack(list, track) {
 }
 
 function prevSong() {
-	playTrack('playing',lists.playing.now-1);
+	audio.currentTime-=10;
 }
 
 function nextSong() {
-	playTrack('playing',lists.playing.now+1);
+	audio.currentTime+=10;
 }
 
 function playTrack(list, track) {
