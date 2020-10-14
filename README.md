@@ -6,4 +6,4 @@ Saab themed music player using [electron js](https://www.electronjs.org/)
 
 # Current state of the project:
 
-![alt text](https://raw.githubusercontent.com/saabismi/SuapinRatio/master/resources/screenshots/nykytila-20-10-09.png "Current state of the program")
+![alt text](https://raw.githubusercontent.com/saabismi/SuapinRatio/master/app/resources/screenshots/nykytila-20-10-14.png "Current state of the program")
