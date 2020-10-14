@@ -5,6 +5,43 @@ window.playing = "Currently not playing anything";
 
 let audio = new Audio();
 
+function formatSecondsAsTime(secs, format) {
+  var hr  = Math.floor(secs / 3600);
+  var min = Math.floor((secs - (hr * 3600))/60);
+  var sec = Math.floor(secs - (hr * 3600) -  (min * 60));
+
+  if (min < 10){
+    min = "0" + min;
+  }
+  if (sec < 10){
+    sec  = "0" + sec;
+  }
+
+  return min + ':' + sec;
+}
+
+audio.ontimeupdate = () => {
+	var currTimeDiv = document.getElementById('songprogress');
+	var durationDiv = document.getElementById('songlength');
+
+	var currTime = Math.floor(audio.currentTime).toString();
+	var duration = Math.floor(audio.duration).toString();
+
+	currTimeDiv.innerHTML = formatSecondsAsTime(currTime);
+
+	if (isNaN(duration)){
+		durationDiv.innerHTML = '--:--';
+		currTimeDiv.innerHTML = '--:--';
+	}
+	else{
+		durationDiv.innerHTML = formatSecondsAsTime(duration);
+	}
+}
+
+audio.onended = () => {
+	playTrack('playing', lists.playing.now+1);
+}
+
 let lists = {
 	search: {
 		name: "search",
@@ -54,9 +91,6 @@ function playTrack(list, track) {
 		audio.time = 0;
 		audio.play();
 		lists[list].playing = true;
-		audio.onended = () => {
-			playTrack('playing', lists[list].now+1);
-		}
 	}
 }
 
