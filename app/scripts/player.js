@@ -24,7 +24,8 @@ let lists = {
 
 function removeTrack(list, track) {
 	lists[list].items.splice(track, 1);
-	playTrack(list)
+	printList(list, lists[list].target, 'display');
+	playTrack(list);
 }
 
 function prevSong() {
@@ -138,10 +139,10 @@ function printList(list,target,action) {
 				button.innerHTML = (`<img class="thumbnail" src='${item.thumbnail}'><br>${item.title}`);
 				break;
 			case 'display':
-				button.setAttribute("onClick",`playTrack('playing',${i})`);
+				button = document.createElement("DIV");
 				button.setAttribute("class", "playingTrack");
 				div.appendChild(button);
-				button.innerHTML = (`${item.title}`);
+				button.innerHTML = (`<button class='playingTrack_button' onClick="playTrack('playing',${i});">${item.title}</button><br><button onClick="removeTrack('playing', ${i});">Delete</button>`);
 				break;
 			}
 	});

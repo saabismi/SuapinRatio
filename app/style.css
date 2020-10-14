@@ -1,314 +1,355 @@
 /*Import the custom font that looks like the font in SAAB SID*/
 @font-face {
-font-family: "beefd";
-src: url("beefd.ttf");
+	font-family: "beefd";
+	src: url("beefd.ttf");
 }
 
 @font-face {
-font-family:"7segment";
-src: url("7segment.ttf");
+	font-family:"7segment";
+	src: url("7segment.ttf");
 }
 
 /*Apply for all elements*/
 * {
-box-sizing: border-box;
+	box-sizing: border-box;
+	outline: none;
 }
 
 
-/*Basic styling for body*/
-body {
-margin:0;
-font-family: Arial, Helvetica, sans-serif;
-background-color: #171717;
-color:#f5f5f5;
-}
-
-/*Class to use for hiding elements*/
-.hidden {
-display:hidden;
-}
 
 
-/* FLEX CONTAINER */
-
-.flex-container {
-display:flex;
-}
 
 
-/* ASIDE = sidebar */
+/* === SPECIAL STYLING: === */
+	/*Class to use for hiding elements*/
+	.hidden {
+		display:hidden;
+	}
 
-aside {
-background-color:#313131;
-width:25%;
-max-width: 250px;
-margin:10px;
-margin-right:0px;
-}
 
-/*Search*/
 
-section.search {
-height:40px;
-width:240px;
-padding:0;
-margin:0;
-}
+
+
+
+/* === BASIC LAYOUT STYLING: === */
+	/*Basic styling for body*/
+	body {
+		margin:0;
+		font-family: Arial, Helvetica, sans-serif;
+		background-color: #171717;
+		color:#f5f5f5;
+	}
+
+	/* ASIDE = sidebar */
+	aside {
+		background-color:#313131;
+		max-width: 250px;
+		margin:10px;
+		margin-right:0px;
+	}
+
+	/*Search*/
+	section.search {
+		height:40px;
+		width:240px;
+		padding:0;
+		margin:0;
+	}
+
+	/* FLEX CONTAINER */
+	.flex-container {
+		display:flex;
+	}
+
+	/* MAIN */
+	main {
+		width:98%;
+		margin:10px;
+		background-color: #313131;
+	}
+
+
+	/*Logo h1*/
+	h1#logo {
+		font-family: "arial black";
+		font-size: 3rem;
+		margin:0;
+	}
+
+	#results {
+		width:100%;
+		height:220px;
+		display:flex;
+		flex-direction: row;
+	}
+
+	#playlists {
+		width:95%;
+		display:flex;
+		flex-direction: column;
+	}
+
+	#flex-player {
+		display:flex;
+		flex-direction: column-reverse;
+		position: absolute;
+		bottom:0;
+		width:100%;
+	}
+
+	#player {
+		background-color: #494949;
+		width:100%;
+		height:100%;
+	}
+
+
+
+
+
+/* === INVIDUAL LAYOUT ELEMENT STYLING: === */
+	/* Thumbnails in search results */
+	.thumbnail {
+		width:90%;
+		height:auto;
+		max-height:200px;
+	}
+
+	.playingTrack {
+		width: 20%;
+		margin: 4px;
+		display: inline-flex;
+	}
+
+	.currentList {
+		display:flex;
+		flex-direction: row;
+	}
+
+	.searchResult {
+		width:30%;
+		height:auto;
+	}
+
+	#proglength {
+		font-family: "7segment";
+		float:right;
+		margin-right:10px;
+		font-size: 24pt;
+		color:#27ed2d;
+		padding-top:0;
+		margin-top:0;
+		margin-bottom:0;
+	}
+
+
+
+
+
 
 .search input[type="text"] {
-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-font-weight: bold;
-border:none;
-background-color:transparent;
-color:#494949;
-outline:0;
-font-size:16pt;
-background-color: #f7f7f7;
-padding:5px;
-height:40px;
-width:200px;
-margin:0;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-weight: bold;
+	border:none;
+	background-color:transparent;
+	color:#494949;
+	font-size:16pt;
+	background-color: #f7f7f7;
+	padding:5px;
+	height:100%;
+	width: 80%;
+	margin:1px;
 }
 
 .search button {
-font-family:Arial, Helvetica, sans-serif;
-background-color:#27ed2d;
-color:#000000;
-border:none;
-outline:none;
-height:40px;
-width:40px;
-margin:0;
-padding:0;
-cursor: pointer;
-}
-
-
-/*Links area*/
-#links ul li {
-list-style-type: none;
-color:#fcbb43;
-font-family: "beefd";
-padding: 5px;
-font-size: 10pt;
-}
-
-#links ul {
-margin:0;
-padding:0;
-}
-
-#links a {
-cursor: pointer;
-}
-
-#links ul li:hover {
-margin-left:2px;
-color:#e49603;
-}
-
-/* Thumbnails in search results */
-
-.thumbnail {
-width:90%;
-height:auto;
-max-height:200px;
-}
-
-
-#searchResult {
-width:30%;
-height:auto;
-}
-
-
-#results {
-width:100%;
-height:220px;
-display:flex;
-flex-direction: row;
-}
-
-#playlists {
-width:95%;
-display:flex;
-flex-direction: column;
-}
-
-
-/* MAIN */
-
-main {
-width:98%;
-margin:10px;
-background-color: #313131;
-}
-
-
-/*Logo h1*/
-
-h1#logo {
-font-family: "arial black";
-font-size: 3rem;
-margin:0;
-}
-
-
-/* SAAB STYLE BUTTONS */
-
-/*Button styling*/
-button.saab {
-width:242px;
-height:100px;
-border:none;
-font-size:30pt;
-color:#c1f9aa;
-font-family: Arial, Helvetica, sans-serif;
-cursor: pointer;
-outline:0;
-background-image: url(resources/up.png);
-background-color:transparent;
-background-repeat: no-repeat;
-}
-
-/*Change the background image when the button is pressed*/
-button.saab:active {
-background-image: url(resources/down.png);
-}
-
-/*Move the text slightly when the button is pressed*/
-button.saab:active span.btntxt {
-margin-right:5px;
-color:#b5f898;
-}
-
-/*Button wide enough for the text "night panel"*/
-#nightpanel {
-width:330px;
-height:100px;
-background-size: 330px 100px;
-}
-
-/* PLAYER */
-
-#flex-player {
-display:flex;
-flex-direction: column-reverse;
-/*position: absolute;
-bottom:0;*/
-width:100%;
-}
-
-#player {
-background-color: #494949;
-width:100%;
-height:100%;
-}
-
-#proglength {
-font-family: "7segment";
-float:right;
-margin-right:10px;
-font-size: 24pt;
-color:#27ed2d;
-padding-top:0;
-margin-top:0;
-margin-bottom:0;
-}
-
-/*Placeholder button which will be replaced by songs as soon as you add them to the queue*/
-#placeholderbtn {
-background-color: transparent;
-color:transparent;
-border:2px solid transparent;
+	font-family:Arial, Helvetica, sans-serif;
+	background-color:#27ed2d;
+	color:#000000;
+	border:none;
+	height:100%;
+	width: auto;
+	margin:0;
+	paddin2px:5px;
+	cursor: pointer;
 }
 
 
 
-/* BUTTONS */
-
-#buttons {
-margin:0;
-padding:0;
-}
-
-#buttons button {
-width:100px;
-height:63px;
-background-size: 100% 100%;
-outline: 0;
-background-color: transparent;
-border:none;
-margin:0;
-padding:0;
-cursor:pointer;
-}
-
-#mute {
-background-image: url(resources/mute.png);
-}
-
-#mute:active {
-background-image: url(resources/mute2.png);
-}
-
-#previous {
-background-image: url(resources/previous.png);
-}
-
-#previous:active {
-background-image: url(resources/previous2.png);
-}
-
-#next {
-background-image: url(resources/next.png);
-}
-
-#next:active {
-background-image: url(resources/next2.png);
-}
 
 
-/* SAAB SID LCD style for text */
 
-/* Basic styling */
-.lcd {
-font-family: "beefd";
-background-color: #003e07;
-color:#27ed2d;
-padding:10px;
-height:2rem;
-}
+/* === LINK & BUTTON STYLING: === */
+	/*Placeholder button which will be replaced by songs as soon as you add them to the queue*/
+	#placeholderbtn {
+		background-color: transparent;
+		color:transparent;
+		border:2px solid transparent;
+	}
 
-/* Background for animated LCD elements */
-.lcdbg {
-background-color: #003e07;
-white-space: nowrap;
-overflow:hidden;
-}
+	#buttons {
+		margin:0;
+		padding:0;
+	}
 
-/*Class for applying the marquee animation easily*/
-.anim {
-animation: marquee 15s steps(100,end) infinite;
-}
+	#buttons button {
+		width:100px;
+		height:63px;
+		background-size: 100% 100%;
+		outline: 0;
+		background-color: transparent;
+		border:none;
+		margin:0;
+		padding:0;
+		cursor:pointer;
+	}
 
-/*Keyframes for the marquee animation*/
+	#mute {
+		background-image: url(resources/mute.png);
+	}
 
-/*Toimii ihan ok, mutta vois olla hienompiki*/
-@keyframes marquee {
-  0% {
-    transform: translateX(100%);
-  }
-  40% {
-    transform: translateX(0%);
-  }
-  60% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
+	#mute:active {
+		background-image: url(resources/mute2.png);
+	}
+
+	#previous {
+		background-image: url(resources/previous.png);
+	}
+
+	#previous:active {
+		background-image: url(resources/previous2.png);
+	}
+
+	#next {
+		background-image: url(resources/next.png);
+	}
+
+	#next:active {
+		background-image: url(resources/next2.png);
+	}
+	button.saab {
+		width:242px;
+		height:100px;
+		border:none;
+		font-size:30pt;
+		color:#c1f9aa;
+		font-family: Arial, Helvetica, sans-serif;
+		cursor: pointer;
+		outline:0;
+		background-image: url(resources/up.png);
+		background-color:transparent;
+		background-repeat: no-repeat;
+	}
+
+	/*Change the background image when the button is pressed*/
+	button.saab:active {
+		background-image: url(resources/down.png);
+	}
+
+	/*Move the text slightly when the button is pressed*/
+	button.saab:active span.btntxt {
+		margin-right:5px;
+		color:#b5f898;
+	}
+
+	/*Links area*/
+	#links ul li {
+		list-style-type: none;
+		color:#fcbb43;
+		font-family: "beefd";
+		padding: 5px;
+		font-size: 10pt;
+	}
+
+	#links ul {
+		margin:0;
+		padding:0;
+	}
+
+	#links a {
+		cursor: pointer;
+	}
+
+	#links ul li:hover {
+		margin-left:2px;
+		color:#e49603;
+	}
+
+
+
+
+
+
+/*=== ANIMATION & LCD STYLING ===*/
+	/* Basic styling */
+	.lcd {
+		font-family: "beefd";
+		background-color: #003e07;
+		color:#27ed2d;
+		padding:10px;
+		height:2rem;
+	}
+
+	/* Background for animated LCD elements */
+	.lcdbg {
+		background-color: #003e07;
+		white-space: nowrap;
+		overflow:hidden;
+	}
+
+	/*Class for applying the marquee animation easily*/
+	.anim {
+		animation: marquee 15s steps(100,end) infinite;
+	}
+
+	/*Keyframes for the marquee animation*/
+
+	/*Toimii ihan ok, mutta vois olla hienompiki*/
+	@keyframes marquee {
+	  0% {
+	    transform: translateX(100%);
+	  }
+	  40% {
+	    transform: translateX(0%);
+	  }
+	  60% {
+	    transform: translateX(0%);
+	  }
+	  100% {
+	    transform: translateX(-100%);
+	  }
+	}
+
+
+/* === RESPONSIVE STYLING: === */
+	@media screen and (max-width: 700px) {
+		.flex-container {
+			display:flex;
+			flex-direction: column;
+		}
+
+		#results {
+			flex-direction: column;
+		}
+
+		.currentList {
+			flex-direction: column;
+		}
+		/*Add menu button for links in mobile display later */
+		#links {
+			display: none;
+		}
+
+		main {
+			width: 100%;
+			overflow-y: scroll;
+		}
+
+		.searchResult {
+			width:90%;
+			height:auto;
+		}
+	}
+
 
 
 /* Testailu joka aika paskana (älä silti poista)*/
