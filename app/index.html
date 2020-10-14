@@ -20,11 +20,11 @@
 
 <section id="links">
     <ul>
-		<a><li>Hakutulokset</li></a>
+		<a onClick="page('results')"><li>Hakutulokset</li></a>
         <a><li>Kappaleet</li></a>
         <a><li>Artistit</li></a>
         <a><li>Soittolistat</li></a>
-        <a><li>Lataukset</li></a>
+        <a onClick="page('downloads')"><li>Lataukset</li></a>
         <a><li>Asetukset</li></a>
     </ul>
 </section>
@@ -33,19 +33,25 @@
 
 
 <main>
-	<h2>Hakutulokset:</h2>
-    <div id="results"></div>
+	<div id="page_results" style="display=none;">
+		<h2>Hakutulokset:</h2>
+	    <div id="results"></div>
 
-	<!--
-	<hr>
+		<!--
+		<hr>
 
-	<h2>NappiTesti</h2>
+		<h2>NappiTesti</h2>
 
-	<button class="saab"><span class="btntxt">RADIO</span></button>
-	<button id="nightpanel" class="saab"><span class="btntxt">NIGHT PANEL</span></button>
+		<button class="saab"><span class="btntxt">RADIO</span></button>
+		<button id="nightpanel" class="saab"><span class="btntxt">NIGHT PANEL</span></button>
 
-	<button onclick="saveList('listatesti')">Uusi soittolista</button>
-	-->
+		<button onclick="saveList('listatesti')">Uusi soittolista</button>
+		-->
+	</div>
+	<div id="page_downloads" style="display=none;">
+		<h2>Lataukset:</h2>
+	    <div id="downloads"></div>
+	</div>
 </main>
 
 </div>

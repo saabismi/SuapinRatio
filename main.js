@@ -32,9 +32,10 @@ async function setActivity() {
   }
 
 	const title = await win.webContents.executeJavaScript('window.playing');
-
+	const time = await win.webContents.executeJavaScript('window.time');
+	
   rpc.setActivity({
-    details: 'Listening to music',
+    details: `Listening to music (${time})`,
     state: title,
     startTimestamp,
     instance: false,

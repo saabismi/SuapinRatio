@@ -2,23 +2,25 @@ const ytdl = require("ytdl-core");
 const ytsr = require("ytsr");
 const fs = require("fs");
 window.playing = "Currently not playing anything";
+window.time = "--:--/--:--"
+
 
 let audio = new Audio();
 
 //function to convert seconds to seconds and minutes.
 function formatSecondsAsTime(secs, format) {
-  var hr  = Math.floor(secs / 3600);
-  var min = Math.floor((secs - (hr * 3600))/60);
-  var sec = Math.floor(secs - (hr * 3600) -  (min * 60));
+	var hr  = Math.floor(secs / 3600);
+	var min = Math.floor((secs - (hr * 3600))/60);
+	var sec = Math.floor(secs - (hr * 3600) -  (min * 60));
 
-  if (min < 10){
-    min = "0" + min;
-  }
-  if (sec < 10){
-    sec  = "0" + sec;
-  }
+	if (min < 10){
+		min = "0" + min;
+	}
+	if (sec < 10){
+		sec  = "0" + sec;
+	}
 
-  return min + ':' + sec;
+	return min + ':' + sec;
 }
 
 //Updetes the time every second
@@ -34,15 +36,23 @@ audio.ontimeupdate = () => {
 	if (isNaN(duration)){
 		durationDiv.innerHTML = '--:--';
 		currTimeDiv.innerHTML = '--:--';
+		window.time = '--:--';
 	}
 	else{
 		durationDiv.innerHTML = formatSecondsAsTime(duration);
+		window.time = formatSecondsAsTime(currTime) + ' / ' +  formatSecondsAsTime(duration);
 	}
 }
 
 //play next song when audio has ended.
 audio.onended = () => {
 	playTrack('playing', lists.playing.now+1);
+}
+
+//Save data on quit
+window.onbeforeunload = () => {
+	let data = JSON.stringify(lists);
+	fs.writeFileSync('playlists.json', data);
 }
 
 //Declare needed playlists
@@ -62,6 +72,37 @@ let lists = {
 		playing: false,
 	},
 };
+
+let pages = [
+	{
+		name: "results",
+		id:  "page_results",
+		active: true,
+	},
+	{
+		name: "downloads",
+		id:  "page_downloads",
+		active: false,
+	},
+]
+
+//Load playlist data and display it
+if (fs.existsSync('playlists.json')) {
+	lists = require('./../playlists.json');
+}
+printList('playing', 'currentList', 'display');
+
+function page(target) {
+	pages.forEach((item, i) => {
+		if (item.name==target) {
+			document.getElementById(item.id).style = "display: block;";
+			pages[i].active = true;
+		} else {
+			document.getElementById(item.id).style = "display: none;";
+			pages[i].active = false;
+		}
+	});
+}
 
 //FUnction to remove track from a playlist, list is the plylist's name (string) and track is the index of the track.
 function removeTrack(list, track) {
@@ -83,6 +124,7 @@ function nextSong() {
 //Function to play specified track in playlist
 function playTrack(list, track) {
 	if (!(track === undefined) || !lists[list].playing) {
+		window.timestamp = new Date();
 		//If the track is specified, set the player to play that track.
 		if (!(track === undefined)) {lists[list].now=track;}
 
@@ -97,7 +139,6 @@ function playTrack(list, track) {
 		//Update Discord RPC and the marquee
 		document.getElementById('playing').innerText = lists[list].items[lists[list].now].title
 		window.playing = lists[list].items[lists[list].now].title;
-
 		audio.src = `../${lists[list].items[lists[list].now].source}`;
 		audio.time = 0;
 		audio.play();
@@ -212,7 +253,7 @@ function printList(list,target,action) {
 				//Add two buttons to div, one to play that track, one to delete it.
 				button.innerHTML = (`<button class='playingTrack_button' onClick="playTrack('playing',${i});">${item.title}</button><br><button onClick="removeTrack('playing', ${i});">Delete</button>`);
 				break;
-			}
+		}
 	});
 }
 

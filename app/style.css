@@ -84,6 +84,7 @@
 		height:220px;
 		display:flex;
 		flex-direction: row;
+		overflow-x: scroll;
 	}
 
 	#playlists {
