@@ -51,7 +51,7 @@ audio.onended = () => {
 
 //Save data on quit
 window.onbeforeunload = () => {
-	let data = JSON.stringify(lists);
+	let data = JSON.stringify(lists, null, 2);
 	fs.writeFileSync('playlists.json', data);
 }
 
@@ -122,6 +122,9 @@ function updatePage(page) {
 		case 'downloads':
 			printList('downloads', 'downloads', 'play');
 			break;
+		case 'playlists':
+			printLists('playlists');
+			break;
 	}
 }
 
@@ -172,7 +175,7 @@ function playTrack(list, track) {
 
 //(WIP) function to save list
 function saveList(name) {
-	lists[name]=lists.playing;
+	lists[name]=JSON.parse(JSON.stringify(lists.playing));
 	lists[name].name=name;
 	printLists("playlists");
 }
@@ -181,16 +184,19 @@ function saveList(name) {
 function playList(list) {
 	lists.playing.items = [];
 	lists.playing.items = lists[list].items;
+	printList('playing', 'currentList','display');
+	playTrack('playing');
 }
 
 //Function to print all playlists in memory. Target is the id of HTML element where to print. (WIP)
 function printLists(target) {
 	div = document.getElementById(target);
+	div.innerHTML = "";
 	for (let key in lists) {
-	    if (p.hasOwnProperty(key)) {
+	    if (lists.hasOwnProperty(key)) {
 			button = document.createElement("BUTTON");
 			button.setAttribute("class","playlist");
-			button.setAttribute("onClick", `playList(${key});`);
+			button.setAttribute("onClick", `playList('${key}');`);
 	        div.appendChild(button);
 			button.innerText = lists[key].name;
 	    }
@@ -240,6 +246,7 @@ function video(from, id, to) {
 
 //Function to get search results and save them to "search" playlist.
 function search(string) {
+	page('results');
 	//reset search playlist:
 	lists.search.items = [];
 	ytsr(string, {limit: 3}).then(result => {
