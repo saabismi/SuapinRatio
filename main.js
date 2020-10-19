@@ -1,4 +1,5 @@
 const { app, BrowserWindow } = require("electron");
+const path = require('path');
 let win;
 
 function createWindow() {
@@ -11,12 +12,29 @@ function createWindow() {
             nodeIntegration: true
 
         }
-    })
+    });
+
+	console.log(win.setThumbarButtons([
+		{
+			tooltip: 'prev',
+			icon: path.join(__dirname, 'prev.png'),
+			click () { console.log('prev') },
+		},
+		{
+			tooltip: 'play',
+			icon: path.join(__dirname, 'play.png'),
+			click () { console.log('play') },
+		},
+		{
+			tooltip: 'next',
+			icon: path.join(__dirname, 'next.png'),
+			click () { console.log('next') },
+		}
+	]));
 
     win.loadFile("app/index.html");
 
 }
-
 
 app.whenReady().then(createWindow);
 
