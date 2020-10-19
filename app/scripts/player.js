@@ -71,6 +71,13 @@ let lists = {
 		now: 0,
 		playing: false,
 	},
+	downloads: {
+		name: "downloads",
+		target: "downloads",
+		items: [],
+		now: 0,
+		playing: false,
+	},
 };
 
 let pages = [
@@ -82,6 +89,11 @@ let pages = [
 	{
 		name: "downloads",
 		id:  "page_downloads",
+		active: false,
+	},
+	{
+		name: 'playlists',
+		id: 'page_playlists',
 		active: false,
 	},
 ]
@@ -97,11 +109,20 @@ function page(target) {
 		if (item.name==target) {
 			document.getElementById(item.id).style = "display: block;";
 			pages[i].active = true;
+			updatePage(item.name);
 		} else {
 			document.getElementById(item.id).style = "display: none;";
 			pages[i].active = false;
 		}
 	});
+}
+
+function updatePage(page) {
+	switch (page) {
+		case 'downloads':
+			printList('downloads', 'downloads', 'play');
+			break;
+	}
 }
 
 //FUnction to remove track from a playlist, list is the plylist's name (string) and track is the index of the track.
@@ -124,25 +145,28 @@ function nextSong() {
 //Function to play specified track in playlist
 function playTrack(list, track) {
 	if (!(track === undefined) || !lists[list].playing) {
-		window.timestamp = new Date();
-		//If the track is specified, set the player to play that track.
-		if (!(track === undefined)) {lists[list].now=track;}
+		if (!lists[list].items[track].source) {
+			lists[list].items[track] = loadVideo(list,track);
+		} else {
+			window.timestamp = new Date();
+			//If the track is specified, set the player to play that track.
+			if (!(track === undefined)) {lists[list].now=track;}
 
-		if (lists[list].now < 0 || lists[list].now >= lists[list].items.lenght) {
-			//If track is nonexistent, reset player.
-			lists[list].now = 0;
-			lists[list].playing = false;
-			document.getElementById('playing').innerText = " "
-			window.playing = "Currently not playing anything";
-			return;
+			if (lists[list].now < 0 || lists[list].now >= lists[list].items.lenght) {
+				//If track is nonexistent, reset player.
+				lists[list].now = 0;
+				lists[list].playing = false;
+				document.getElementById('playing').innerText = " ";
+				window.playing = "Currently not playing anything";
+				return;
+			}
+			//Update Discord RPC and the marquee
+			document.getElementById('playing').innerText = lists[list].items[lists[list].now].title
+			window.playing = lists[list].items[lists[list].now].title;
+			audio.src = `../${lists[list].items[lists[list].now].source}`;
+			audio.play();
+			lists[list].playing = true;
 		}
-		//Update Discord RPC and the marquee
-		document.getElementById('playing').innerText = lists[list].items[lists[list].now].title
-		window.playing = lists[list].items[lists[list].now].title;
-		audio.src = `../${lists[list].items[lists[list].now].source}`;
-		audio.time = 0;
-		audio.play();
-		lists[list].playing = true;
 	}
 }
 
@@ -173,36 +197,44 @@ function printLists(target) {
 	}
 }
 
-//Loads youtube video. From is the playlist where the video is, id is the index of track, to is where to append track when loaded.
-function loadVideo(from, id, to) {
+//Loads youtube video. From is the playlist where the video is, id is the index of track.
+function loadVideo(from, id) {
 	let item = lists[from].items[id];
 	//Avoid filesystem messing with onverting " " to "_"
 	let destination = `tracks/${item.title.replace(/\ /g,'_')}.mp4`;
 	//Make track data
 	let track = {
 		title: item.title,
-		url: item.link,
+		url: item.url,
 		thumbnail: item.thumbnail,
 		duration: item.duration,
 		source: destination,
 		playing: false,
 	};
-	//Push track data to list
-	lists[to].items.push(track);
 	//Do not download the track if it is already in memory.
 	if (!fs.existsSync(destination)) {
 		let stream = fs.createWriteStream(destination);
 		//fetch from YT
 		ytdl(item.url,{ filter: format => format.container === 'mp4' }).pipe(stream);
 		stream.on("close", ()=>{
+			//Register the download (push to download playlist)
+			lists.downloads.items.push(track);
 			//play the track when downloaded
 			playTrack('playing');
-		})
+		});
 	} else {
 		//play the track.
 		playTrack('playing');
 	}
 	//Update playlist.
+	return track;
+}
+
+//Function for loading video from search results
+function video(from, id, to) {
+	track = loadVideo(from, id);
+	//Push track data to list
+	lists[to].items.push(track);
 	printList('playing', 'currentList','display');
 }
 
@@ -237,7 +269,7 @@ function printList(list,target,action) {
 		switch (action) {
 			case 'play':
 				//Bind a function to the button
-				button.setAttribute("onClick",`loadVideo('search', ${i}, 'playing' ); `);
+				button.setAttribute("onClick",`video('search', ${i}, 'playing' ); `);
 				//And a class
 				button.setAttribute("class", "searchResult");
 				div.appendChild(button);

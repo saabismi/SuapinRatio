@@ -21,9 +21,9 @@
 <section id="links">
     <ul>
 		<a onClick="page('results')"><li>Hakutulokset</li></a>
-        <a><li>Kappaleet</li></a>
-        <a><li>Artistit</li></a>
-        <a><li>Soittolistat</li></a>
+        <a onClick="page('playlists')"><li>Soittolistat</li></a>
+        <a><li>Soittolista</li></a>
+        <a><li>Suoratoisto</li></a>
         <a onClick="page('downloads')"><li>Lataukset</li></a>
         <a><li>Asetukset</li></a>
     </ul>
@@ -33,7 +33,7 @@
 
 
 <main>
-	<div id="page_results" style="display:none;">
+	<div id="page_results" style="display:block;">
 		<h2>Hakutulokset:</h2>
 	    <div id="results"></div>
 
@@ -51,6 +51,11 @@
 	<div id="page_downloads" style="display:none;">
 		<h2>Lataukset:</h2>
 	    <div id="downloads"></div>
+	</div>
+
+	<div id="page_playlists" style="display:none;">
+		<h2>Soittolistat:</h2>
+	    <div id="playlists"></div>
 	</div>
 </main>
 
