@@ -276,10 +276,12 @@ button.saab:active span.btntxt {
 }
 
 .playingTrack {
-	border-right:3px solid #27ed2d;
-	display:inline-flex;
+	display:inline;
 	width:auto;
 	height:50px;
+	position: relative;
+	background-color:#003e07;
+	outline:none;
 }
 
 .playingTrack button.playingTrack_button {
@@ -290,10 +292,11 @@ button.saab:active span.btntxt {
 	font-size:6pt;
 	font-weight: normal;
 	height:50px;
+	cursor:pointer;
 }
 
 .playingTrack_button img {
-	max-height: 50px;
+	height: 44px;
 	width:auto;
 	float:left;
 	display:inline;
@@ -301,21 +304,31 @@ button.saab:active span.btntxt {
 
 .playingTrack_button .songtitle {
 	max-height:50px;
-	max-width:300px;
-	float:right;
-	white-space: normal;
-	word-wrap: break-word;
+	max-width:200px;
+	float:left;
+	text-align: left;
+	width:auto;
+	overflow-y: hidden;
 }
 
-.playingTrack button {
+.playingTrack .removetrack{
 	font-family: Arial, Helvetica, sans-serif;
 	color:#fb0006;
 	font-weight:bold;
 	padding:0;
-	margin:0;
 	border:none;
+	position: absolute;
+	top:0;
+	right:0;
 }
 
+@media only screen and (max-width: 900px) {
+
+	.playingTrack_button img {
+		display:none;
+	}
+
+}
 
 
 

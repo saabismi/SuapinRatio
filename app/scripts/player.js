@@ -290,7 +290,7 @@ function printList(list,target,action) {
 				button.setAttribute("class", "playingTrack");
 				div.appendChild(button);
 				//Add two buttons to div, one to play that track, one to delete it.
-				button.innerHTML = (`<button class='playingTrack_button' onClick="playTrack('playing',${i});"><img src="${item.thumbnail}"><span class="songtitle">${item.title}</span></button><br><button onClick="removeTrack('playing', ${i});">X</button>`);
+				button.innerHTML = (`<button class='playingTrack_button' onClick="playTrack('playing',${i});"><img src="${item.thumbnail}"><span class="songtitle">${item.title}</span></button><br><button class="removetrack" onClick="removeTrack('playing', ${i});">X</button>`);
 				break;
 		}
 	});
