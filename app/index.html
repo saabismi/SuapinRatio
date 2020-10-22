@@ -74,6 +74,7 @@
         <div id="buttons">
             <button id="mute" onclick="playAndPause()"></button>
             <button id="previous" onclick="prevSong()"></button><button id="next" onclick="nextSong()"></button>
+			<input type="range" id="vol" name="vol" min="0" max="1" step="0.01" onchange="changeVolume(this.value)">
         </div>
     </div>
 

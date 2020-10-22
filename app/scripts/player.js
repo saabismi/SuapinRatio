@@ -296,15 +296,22 @@ function printList(list,target,action) {
 	});
 }
 
-//hillon juttui
+// Play/pause functionality
 
 function playAndPause() {
-
+	//check if the audio is paused
 	if (audio.paused) {
-		audio.play();
-		console.log("Playback continued");
+		audio.play(); //audio is paused, therefore play it
 	} else {
-		audio.pause()
-		console.log("Playback paused");
+		audio.pause(); //audio is not paused (= it most likely is playing), therefore pause it
 	}
+}
+
+
+// Volume changing functionality
+
+function changeVolume(amount) {
+	//set the audio object volume to the value on the slider
+	audio.volume = amount;
+
 }
