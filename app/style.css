@@ -118,12 +118,6 @@
 		max-height:200px;
 	}
 
-	.playingTrack {
-		width: 20%;
-		margin: 4px;
-		display: inline-flex;
-	}
-
 	#currentList {
 		display:flex;
 		flex-direction: row;
@@ -184,101 +178,143 @@
 
 
 /* === LINK & BUTTON STYLING: === */
-	/*Placeholder button which will be replaced by songs as soon as you add them to the queue*/
-	#placeholderbtn {
-		background-color: transparent;
-		color:transparent;
-		border:2px solid transparent;
-	}
 
-	#buttons {
-		margin:0;
-		padding:0;
-	}
 
-	#buttons button {
-		width:100px;
-		height:63px;
-		background-size: 100% 100%;
-		outline: 0;
-		background-color: transparent;
-		border:none;
-		margin:0;
-		padding:0;
-		cursor:pointer;
-	}
+/*Placeholder button which will be replaced by songs as soon as you add them to the queue*/
+#placeholderbtn {
+	background-color: transparent;
+	color:transparent;
+	border:2px solid transparent;
+}
 
-	#mute {
-		background-image: url(resources/mute.png);
-	}
+#buttons {
+	margin:0;
+	padding:0;
+}
 
-	#mute:active {
-		background-image: url(resources/mute2.png);
-	}
+#buttons button {
+	width:100px;
+	height:63px;
+	background-size: 100% 100%;
+	outline: 0;
+	background-color: transparent;
+	border:none;
+	margin:0;
+	padding:0;
+	cursor:pointer;
+}
 
-	#previous {
-		background-image: url(resources/previous.png);
-	}
+#mute {
+	background-image: url(resources/mute.png);
+}
 
-	#previous:active {
-		background-image: url(resources/previous2.png);
-	}
+#mute:active {
+	background-image: url(resources/mute2.png);
+}
 
-	#next {
-		background-image: url(resources/next.png);
-	}
+#previous {
+	background-image: url(resources/previous.png);
+}
 
-	#next:active {
-		background-image: url(resources/next2.png);
-	}
-	button.saab {
-		width:242px;
-		height:100px;
-		border:none;
-		font-size:30pt;
-		color:#c1f9aa;
-		font-family: Arial, Helvetica, sans-serif;
-		cursor: pointer;
-		outline:0;
-		background-image: url(resources/up.png);
-		background-color:transparent;
-		background-repeat: no-repeat;
-	}
+#previous:active {
+	background-image: url(resources/previous2.png);
+}
 
-	/*Change the background image when the button is pressed*/
-	button.saab:active {
-		background-image: url(resources/down.png);
-	}
+#next {
+	background-image: url(resources/next.png);
+}
 
-	/*Move the text slightly when the button is pressed*/
-	button.saab:active span.btntxt {
-		margin-right:5px;
-		color:#b5f898;
-	}
+#next:active {
+	background-image: url(resources/next2.png);
+}
+button.saab {
+	width:242px;
+	height:100px;
+	border:none;
+	font-size:30pt;
+	color:#c1f9aa;
+	font-family: Arial, Helvetica, sans-serif;
+	cursor: pointer;
+	outline:0;
+	background-image: url(resources/up.png);
+	background-color:transparent;
+	background-repeat: no-repeat;
+}
 
-	/*Links area*/
-	#links ul li {
-		list-style-type: none;
-		color:#fcbb43;
-		font-family: "beefd";
-		padding: 5px;
-		font-size: 10pt;
-	}
+/*Change the background image when the button is pressed*/
+button.saab:active {
+	background-image: url(resources/down.png);
+}
 
-	#links ul {
-		margin:0;
-		padding:0;
-	}
+/*Move the text slightly when the button is pressed*/
+button.saab:active span.btntxt {
+	margin-right:5px;
+	color:#b5f898;
+}
 
-	#links a {
-		cursor: pointer;
-	}
+/*Links area*/
+#links ul li {
+	list-style-type: none;
+	color:#fcbb43;
+	font-family: "beefd";
+	padding: 5px;
+	font-size: 10pt;
+}
 
-	#links ul li:hover {
-		margin-left:2px;
-		color:#e49603;
-	}
+#links ul {
+	margin:0;
+	padding:0;
+}
 
+#links a {
+	cursor: pointer;
+}
+
+#links ul li:hover {
+	margin-left:2px;
+	color:#e49603;
+}
+
+.playingTrack {
+	border-right:3px solid #27ed2d;
+	display:inline-flex;
+	width:auto;
+	height:50px;
+}
+
+.playingTrack button.playingTrack_button {
+	background-color:#003e07;
+	color:#27ed2d;
+	font-family: "beefd";
+	width:auto;
+	font-size:6pt;
+	font-weight: normal;
+	height:50px;
+}
+
+.playingTrack_button img {
+	max-height: 50px;
+	width:auto;
+	float:left;
+	display:inline;
+}
+
+.playingTrack_button .songtitle {
+	max-height:50px;
+	max-width:300px;
+	float:right;
+	white-space: normal;
+	word-wrap: break-word;
+}
+
+.playingTrack button {
+	font-family: Arial, Helvetica, sans-serif;
+	color:#fb0006;
+	font-weight:bold;
+	padding:0;
+	margin:0;
+	border:none;
+}
 
 
 
