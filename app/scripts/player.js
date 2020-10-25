@@ -183,7 +183,7 @@ function saveList(name) {
 //Function to play a specified playlist (moves it to currently playing -playlist.)
 function playList(list) {
 	lists.playing.items = [];
-	lists.playing.items = lists[list].items;
+	lists.playing.items = JSON.parse(JSON.stringify(lists[list].items));;
 	printList('playing', 'currentList','display');
 	playTrack('playing');
 }
