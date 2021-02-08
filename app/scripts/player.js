@@ -245,26 +245,25 @@ function video(from, id, to) {
 }
 
 //Function to get search results and save them to "search" playlist.
-function search(string) {
+async function search(string) {
 	page('results');
 	//reset search playlist:
 	lists.search.items = [];
-	ytsr(string, {limit: 3}).then(result => {
-		result.items.forEach((item, i) => {
-			//create new track data from search result
-			let track = {
-				title: item.title,
-				url: item.link,
-				thumbnail: item.thumbnail,
-				duration: item.duration,
-				playing: false,
-			};
-			//append data to playlist "search"
-			lists.search.items.push(track);
-		});
-		//update search list
-		printList('search','results','play');
+	result = await ytsr(string, {limit: 3});
+	result.items.forEach((item, i) => {
+		//create new track data from search result
+		let track = {
+			title: item.title,
+			url: "http://www.youtube.com/watch?v="+item.id,
+			thumbnail: item.bestThumbnail.url,
+			duration: item.duration,
+			playing: false,
+		};
+		//append data to playlist "search"
+		lists.search.items.push(track);
 	});
+	//update search list
+	printList('search','results','play');
 }
 
 //Function to print list items, list is the list to print (string), target is HTML element id where to print and action is the way of displaying.
