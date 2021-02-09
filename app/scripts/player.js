@@ -222,7 +222,7 @@ function loadVideo(from, id) {
 		let stream = fs.createWriteStream(destination);
 		//fetch from YT
 		ytdl(item.url,{ filter: format => format.container === 'mp4' }).pipe(stream);
-		stream.on("close", ()=>{
+		stream.once("close", ()=>{
 			//Register the download (push to download playlist)
 			lists.downloads.items.push(track);
 			//play the track when downloaded
