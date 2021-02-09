@@ -7,6 +7,8 @@ window.time = "--:--/--:--"
 
 let audio = new Audio();
 
+let loadinglevel=0;
+
 //function to convert seconds to seconds and minutes.
 function formatSecondsAsTime(secs, format) {
 	var hr  = Math.floor(secs / 3600);
@@ -21,6 +23,20 @@ function formatSecondsAsTime(secs, format) {
 	}
 
 	return min + ':' + sec;
+}
+
+function loading() {
+	loadinglevel++;
+	if (loadinglevel>0) {
+		document.getElementById("loading").style = "display: block;";
+	}
+}
+
+function notloading() {
+	loadinglevel--;
+	if (loadinglevel<1) {
+		document.getElementById("loading").style = "display: none;";
+	}
 }
 
 //Updetes the time every second
@@ -147,6 +163,7 @@ function nextSong() {
 
 //Function to play specified track in playlist
 function playTrack(list, track) {
+	loading();
 	if (!(track === undefined) || !lists[list].playing) {
 		if (!lists[list].items[track].source) {
 			lists[list].items[track] = loadVideo(list,track);
@@ -171,6 +188,7 @@ function playTrack(list, track) {
 			lists[list].playing = true;
 		}
 	}
+	notloading();
 }
 
 //(WIP) function to save list
@@ -221,16 +239,13 @@ function loadVideo(from, id) {
 	if (!fs.existsSync(destination)) {
 		let stream = fs.createWriteStream(destination);
 		//fetch from YT
+		loading();
 		ytdl(item.url,{ filter: format => format.container === 'mp4' }).pipe(stream);
 		stream.once("close", ()=>{
 			//Register the download (push to download playlist)
 			lists.downloads.items.push(track);
-			//play the track when downloaded
-			playTrack('playing');
+			notloading();
 		});
-	} else {
-		//play the track.
-		playTrack('playing');
 	}
 	//Update playlist.
 	return track;
@@ -246,6 +261,7 @@ function video(from, id, to) {
 
 //Function to get search results and save them to "search" playlist.
 async function search(string) {
+	loading();
 	page('results');
 	//reset search playlist:
 	lists.search.items = [];
@@ -264,6 +280,7 @@ async function search(string) {
 	});
 	//update search list
 	printList('search','results','play');
+	notloading();
 }
 
 //Function to print list items, list is the list to print (string), target is HTML element id where to print and action is the way of displaying.
