@@ -1,7 +1,9 @@
 node_modules/
 temp.mp4
 db/
-tracks/
+tracks/*
+builds
+buildscript.js
 /resources/
 suapinratio-win32-x64/
 suapinratio-win32-x64.rar

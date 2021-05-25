@@ -17,15 +17,14 @@
   },
   "homepage": "https://github.com/saabismi/SuapinRatio#readme",
   "devDependencies": {
-    "electron": "^11.2.3"
+    "electron": "^11.2.3",
+    "electron-wix-msi": "^3.2.0"
   },
   "dependencies": {
     "discord-rpc": "^3.1.4",
     "express": "^4.17.1",
-    "mongodb": "^3.6.4",
-    "mysql": "^2.18.1",
     "youtube-dl": "^3.1.0",
-    "ytdl-core": "^4.4.5",
+    "ytdl-core": "^4.8.0",
     "ytsr": "^3.2.4"
   }
 }
