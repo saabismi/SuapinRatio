@@ -39,7 +39,8 @@ function createWindow() {
 app.whenReady().then(createWindow);
 
 const DiscordRPC = require('discord-rpc');
-const clientId = '764187560418344980';
+// myyrelin vanha id tms. const clientId = '764187560418344980';
+const clientId = "1017170358610174004"; // hillon uus id, toimiva
 const rpc = new DiscordRPC.Client({ transport: 'ipc' });
 const startTimestamp = new Date();
 
