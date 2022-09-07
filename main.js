@@ -58,7 +58,7 @@ async function setActivity() {
     state: title,
     startTimestamp,
     instance: false,
-	largeImageKey: 'logo',
+	largeImageKey: 'https://i.imgur.com/nvUMVHt.png',
   });
 }
 
